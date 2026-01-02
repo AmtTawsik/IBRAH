@@ -1,0 +1,151 @@
+{
+  "brand": {
+    "name": "Ibrah",
+    "tagline": "Stories that leave a lesson behind",
+    "description": "In every story lies a truth. In every truth, a lesson worth learning. Ibrah brings reflections from the Qur’an, Sunnah, and real life to awaken the heart and guide the soul.",
+    "language": "en",
+    "availableLanguages": ["en", "bn"]
+  },
+
+  "sections": {
+    "quranAyat": [
+      {
+        "id": 1,
+        "title": "On Patience and Trust",
+        "arabic": "وَبَشِّرِ الصَّابِرِينَ",
+        "translation": "And give good tidings to the patient.",
+        "reference": "Qur’an 2:155",
+        "isPartial": true,
+        "shortText": "Allah promises glad tidings for those who remain patient during trials.",
+        "publishedAt": "2025-01-15"
+      },
+      {
+        "id": 2,
+        "title": "On Gratitude",
+        "arabic": "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
+        "translation": "If you are grateful, I will surely increase you.",
+        "reference": "Qur’an 14:7",
+        "isPartial": true,
+        "shortText": "Gratitude opens the door to more blessings from Allah.",
+        "publishedAt": "2025-01-16"
+      },
+      {
+        "id": 3,
+        "title": "On Divine Help",
+        "arabic": "وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا",
+        "translation": "And whoever fears Allah, He will make for him a way out.",
+        "reference": "Qur’an 65:2",
+        "isPartial": true,
+        "shortText": "Taqwa creates exits where none seem to exist.",
+        "publishedAt": "2025-01-17"
+      }
+    ],
+
+    "hadith": [
+      {
+        "id": 1,
+        "title": "The Best of People",
+        "text": "The best of people are those who are most beneficial to others.",
+        "reference": "Prophet Muhammad ﷺ",
+        "source": "Musnad Ahmad, Hadith 23489",
+        "shortText": "True excellence lies in serving humanity with sincerity.",
+        "publishedAt": "2025-01-18"
+      },
+      {
+        "id": 2,
+        "title": "On Mercy",
+        "text": "Whoever does not show mercy to people will not be shown mercy by Allah.",
+        "reference": "Prophet Muhammad ﷺ",
+        "source": "Sahih Bukhari 7376, Sahih Muslim 2319",
+        "shortText": "Mercy toward creation brings mercy from the Creator.",
+        "publishedAt": "2025-01-19"
+      },
+      {
+        "id": 3,
+        "title": "Purpose of the Prophet’s Mission",
+        "text": "I was sent only to perfect good character.",
+        "reference": "Prophet Muhammad ﷺ",
+        "source": "Musnad Ahmad 8595",
+        "shortText": "Islam places character at the heart of faith.",
+        "publishedAt": "2025-01-20"
+      }
+    ],
+
+    "stories": [
+      {
+        "id": 1,
+        "title": "The Generous Neighbor",
+        "shortText": "Despite poverty, a man shared his small meal daily with his neighbor and witnessed unseen blessings.",
+        "lesson": "Generosity, even in hardship, multiplies goodness.",
+        "category": "Real-Life Reflection",
+        "isInspired": true,
+        "publishedAt": "2025-01-21"
+      },
+      {
+        "id": 2,
+        "title": "The Honest Merchant",
+        "shortText": "A trader who never hid defects in his goods earned trust beyond profit.",
+        "lesson": "Honesty builds success that wealth alone cannot.",
+        "category": "Islamic Wisdom",
+        "isInspired": true,
+        "publishedAt": "2025-01-22"
+      },
+      {
+        "id": 3,
+        "title": "The Forgiving Heart",
+        "shortText": "A grieving mother chose forgiveness over revenge and found peace no anger could give.",
+        "lesson": "Forgiveness frees the heart before it frees the other.",
+        "category": "Social Reality",
+        "isInspired": true,
+        "publishedAt": "2025-01-23"
+      }
+    ],
+
+    "videos": [
+      {
+        "id": 1,
+        "title": "Arwa’s Garden Adventure",
+        "description": "A gentle Islamic story helping children learn manners through nature.",
+        "platform": "YouTube",
+        "embedId": "4mSRUPmx0gQ",
+        "speaker": "Arwa",
+        "publishedAt": "2025-01-24"
+      },
+      {
+        "id": 2,
+        "title": "Saying Bismillah Before Eating",
+        "description": "A simple reminder teaching children to begin with the name of Allah.",
+        "platform": "YouTube",
+        "embedId": "XfeNtupdRq0",
+        "speaker": "Ayaan",
+        "publishedAt": "2025-01-25"
+      }
+    ]
+  },
+
+  "reminders": [
+    {
+      "id": 1,
+      "text": "Every story carries a warning.",
+      "type": "wisdom"
+    },
+    {
+      "id": 2,
+      "text": "Not every lesson comes gently.",
+      "type": "reflection"
+    },
+    {
+      "id": 3,
+      "text": "Learn before life teaches you.",
+      "type": "advice"
+    }
+  ],
+
+  "contact": {
+    "email": "ibrahstories@gmail.com",
+    "social": {
+      "facebook": "https://facebook.com/ibrah.reminder",
+      "youtube": "https://youtube.com/@ibrah_stories"
+    }
+  }
+}

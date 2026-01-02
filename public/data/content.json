@@ -1,0 +1,126 @@
+{
+  "brand": {
+    "name": "Ibrah",
+    "tagline": "Stories that leave a lesson behind",
+    "description": "In every story lies a truth. In every truth, a lesson worth learning. Ibrah brings you powerful narratives that touch the heart and awaken the soul."
+  },
+  "sections": {
+    "quranAyat": [
+      {
+        "id": 1,
+        "title": "On Patience and Trust",
+        "arabic": "وَبَشِّرِ الصَّابِرِينَ",
+        "translation": "And give good tidings to the patient",
+        "reference": "Quran 2:155",
+        "shortText": "Allah promises glad tidings for those who remain patient during trials."
+      },
+      {
+        "id": 2,
+        "title": "On Gratitude",
+        "arabic": "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
+        "translation": "If you are grateful, I will certainly give you more",
+        "reference": "Quran 14:7",
+        "shortText": "Allah's promise to increase His blessings for the grateful."
+      },
+      {
+        "id": 3,
+        "title": "On Divine Help",
+        "arabic": "وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا",
+        "translation": "And whoever fears Allah, He will make for him a way out",
+        "reference": "Quran 65:2",
+        "shortText": "Trust in Allah opens doors where none seem to exist."
+      }
+    ],
+    "hadith": [
+      {
+        "id": 1,
+        "title": "The Best of People",
+        "text": "The best of people are those who benefit others.",
+        "reference": "Prophet Muhammad (ﷺ)",
+        "source": "Ahmad",
+        "shortText": "True excellence lies in serving humanity with sincerity."
+      },
+      {
+        "id": 2,
+        "title": "On Kindness",
+        "text": "Whoever is not merciful to others will not be treated mercifully.",
+        "reference": "Prophet Muhammad (ﷺ)",
+        "source": "Bukhari & Muslim",
+        "shortText": "Mercy shown to creation brings mercy from the Creator."
+      },
+      {
+        "id": 3,
+        "title": "On Character",
+        "text": "I was sent to perfect good character.",
+        "reference": "Prophet Muhammad (ﷺ)",
+        "source": "Ahmad",
+        "shortText": "The Prophet's mission centered on elevating human character."
+      }
+    ],
+    "stories": [
+      {
+        "id": 1,
+        "title": "The Generous Neighbor",
+        "shortText": "A poor man's daily act of sharing his meager meal with his neighbor led to unexpected blessings.",
+        "lesson": "Generosity, no matter how small, creates ripples of goodness.",
+        "category": "Real-Life"
+      },
+      {
+        "id": 2,
+        "title": "The Honest Merchant",
+        "shortText": "A trader who always spoke truth about his goods, even when it meant less profit, became the most trusted in the market.",
+        "lesson": "Honesty is the foundation of lasting success.",
+        "category": "Islamic Wisdom"
+      },
+      {
+        "id": 3,
+        "title": "The Forgiving Heart",
+        "shortText": "A mother who forgave her son's killer found peace that years of anger couldn't bring.",
+        "lesson": "Forgiveness heals the forgiver more than the forgiven.",
+        "category": "Social Reality"
+      }
+    ],
+    "videos": [
+      {
+        "id": 1,
+        "title": "The Power of Dua",
+        "description": "Understanding the true essence of supplication in Islam",
+        "platform": "YouTube",
+        "embedId": "dQw4w9WgXcQ",
+        "speaker": "Islamic Reminder"
+      },
+      {
+        "id": 2,
+        "title": "Lessons from Surah Al-Fatiha",
+        "description": "Deep reflections on the opening chapter of the Quran",
+        "platform": "Facebook",
+        "embedId": "facebook-video-id",
+        "speaker": "Quran Reflection"
+      }
+    ]
+  },
+  "reminders": [
+    {
+      "id": 1,
+      "text": "Every story carries a warning.",
+      "type": "wisdom"
+    },
+    {
+      "id": 2,
+      "text": "Not every lesson comes gently.",
+      "type": "reflection"
+    },
+    {
+      "id": 3,
+      "text": "Learn before life teaches you.",
+      "type": "advice"
+    }
+  ],
+  "contact": {
+    "email": "contact@ibrah.com",
+    "social": {
+      "facebook": "https://facebook.com/ibrah",
+      "youtube": "https://youtube.com/@ibrah"
+    }
+  }
+}

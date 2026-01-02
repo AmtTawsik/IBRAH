@@ -1,25 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import contentData from '../data/content.json';
+
+const content = contentData;
 ---
 
-<Layout title="IBRAH - Stories with Lessons" description="IBRAH brings you powerful short stories with meaningful lessons. Real-life stories, Islamic wisdom, and social reality narratives for the Bangla-speaking audience.">
+<Layout title={`${content.brand.name} - ${content.brand.tagline}`} description={content.brand.description}>
 	<main>
+		<nav class="navbar">
+			<div class="nav-container">
+				<a href="#hero" class="nav-brand">{content.brand.name}</a>
+				<div class="nav-menu">
+					<a href="#reminders" class="nav-link">Reminders</a>
+					<a href="#quran" class="nav-link">Qur'an</a>
+					<a href="#hadith" class="nav-link">Hadith</a>
+					<a href="#stories" class="nav-link">Stories</a>
+					<a href="#videos" class="nav-link">Videos</a>
+					<a href="#contact" class="nav-link">Contact</a>
+				</div>
+				<div class="nav-toggle">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+		</nav>
 		<section id="hero" class="hero">
 			<div class="container">
-				<h1 class="brand-name">IBRAH</h1>
-				<p class="tagline">Stories that leave a lesson behind</p>
-				<p class="intro">
-					In every story lies a truth. In every truth, a lesson worth learning.<br />
-					IBRAH brings you powerful narratives that touch the heart and awaken the soul.
-				</p>
+				<h1 class="brand-name">{content.brand.name}</h1>
+				<p class="tagline">{content.brand.tagline}</p>
+				<p class="intro">{content.brand.description}</p>
 				<div class="cta-buttons">
-					<a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+					<a href={content.contact.social.facebook} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
 						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 							<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
 						</svg>
 						Watch on Facebook
 					</a>
-					<a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+					<a href={content.contact.social.youtube} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
 						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 							<path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
 							<polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
@@ -30,61 +48,88 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</section>
 
-		<section id="about" class="about">
+		<section id="reminders" class="reminders">
 			<div class="container">
-				<h2 class="section-title">What is IBRAH?</h2>
-				<div class="about-content">
-					<p>
-						<span class="highlight">IBRAH</span> is an Arabic word meaning "lesson," "reflection," or "warning taken from a story."
-					</p>
-					<p>
-						Stories have always been humanity's oldest teacher. They carry wisdom, evoke emotion,
-						and leave us changed. IBRAH is a platform dedicated to sharing short, impactful stories
-						that resonate with your heart and awaken your mind.
-					</p>
-					<p>
-						From real-life experiences to Islamic wisdom and social realities, every story we share
-						is crafted to make you pause, think, and grow.
-					</p>
+				<h2 class="section-title">Latest Reminders</h2>
+				<div class="reminder-grid">
+					{content.reminders.map(reminder => (
+						<div class="reminder-card">
+							<p class="reminder-text">"{reminder.text}"</p>
+						</div>
+					))}
 				</div>
 			</div>
 		</section>
 
-		<section id="content-types" class="content-types">
+		<section id="quran" class="quran-section">
 			<div class="container">
-				<h2 class="section-title">Our Stories</h2>
-				<div class="cards">
-					<div class="card">
-						<div class="card-icon">📖</div>
-						<h3>Real-Life Stories</h3>
-						<p>Authentic experiences from everyday people that inspire, warn, and uplift.</p>
-					</div>
-					<div class="card">
-						<div class="card-icon">🕌</div>
-						<h3>Islamic Stories</h3>
-						<p>Timeless wisdom from Islamic history and teachings that guide the soul.</p>
-					</div>
-					<div class="card">
-						<div class="card-icon">🌍</div>
-						<h3>Social Reality Stories</h3>
-						<p>Bold narratives that reflect society's truths and challenge perspectives.</p>
-					</div>
+				<h2 class="section-title">Qur'an Ayat</h2>
+				<div class="content-grid">
+					{content.sections.quranAyat.map(ayah => (
+						<div class="content-card">
+							<h3 class="content-title">{ayah.title}</h3>
+							<p class="arabic-text">{ayah.arabic}</p>
+							<p class="translation">{ayah.translation}</p>
+							<p class="content-text">{ayah.shortText}</p>
+							<span class="reference">{ayah.reference}</span>
+						</div>
+					))}
 				</div>
 			</div>
 		</section>
 
-		<section id="quotes" class="quotes">
+		<section id="hadith" class="hadith-section">
 			<div class="container">
-				<div class="quote-grid">
-					<blockquote class="quote">
-						<p>"Every story carries a warning."</p>
-					</blockquote>
-					<blockquote class="quote">
-						<p>"Not every lesson comes gently."</p>
-					</blockquote>
-					<blockquote class="quote">
-						<p>"Learn before life teaches you."</p>
-					</blockquote>
+				<h2 class="section-title">Hadith</h2>
+				<div class="content-grid">
+					{content.sections.hadith.map(hadith => (
+						<div class="content-card">
+							<h3 class="content-title">{hadith.title}</h3>
+							<p class="hadith-text">"{hadith.text}"</p>
+							<p class="content-text">{hadith.shortText}</p>
+							<span class="reference">{hadith.reference} - {hadith.source}</span>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section id="stories" class="stories-section">
+			<div class="container">
+				<h2 class="section-title">Short Moral Stories</h2>
+				<div class="content-grid">
+					{content.sections.stories.map(story => (
+						<div class="content-card">
+							<h3 class="content-title">{story.title}</h3>
+							<p class="content-text">{story.shortText}</p>
+							<p class="lesson">Lesson: {story.lesson}</p>
+							<span class="category">{story.category}</span>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section id="videos" class="videos-section">
+			<div class="container">
+				<h2 class="section-title">Video Reminders</h2>
+				<div class="content-grid">
+					{content.sections.videos.map(video => (
+						<div class="content-card video-card">
+							<div class="video-embed">
+								<iframe 
+									src={`https://www.youtube.com/embed/${video.embedId}`}
+									title={video.title}
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen>
+								</iframe>
+							</div>
+							<h3 class="content-title">{video.title}</h3>
+							<p class="content-text">{video.description}</p>
+							<span class="reference">{video.speaker}</span>
+						</div>
+					))}
 				</div>
 			</div>
 		</section>
@@ -93,17 +138,17 @@ import Layout from '../layouts/Layout.astro';
 			<div class="container">
 				<h2 class="section-title">Where to Find Us</h2>
 				<p class="platforms-desc">
-					IBRAH publishes short, faceless story videos on social platforms.<br />
+					{content.brand.name} publishes short, meaningful content on social platforms.<br />
 					Join thousands who are already learning and reflecting with us.
 				</p>
 				<div class="social-links">
-					<a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn facebook">
+					<a href={content.contact.social.facebook} target="_blank" rel="noopener noreferrer" class="social-btn facebook">
 						<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
 							<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
 						</svg>
 						<span>Facebook</span>
 					</a>
-					<a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn youtube">
+					<a href={content.contact.social.youtube} target="_blank" rel="noopener noreferrer" class="social-btn youtube">
 						<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
 							<path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
 							<polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
@@ -120,17 +165,16 @@ import Layout from '../layouts/Layout.astro';
 				<p class="contact-text">
 					For collaboration, promotion, or inquiries
 				</p>
-				<a href="mailto:contact@ibrah.com" class="email-link">contact@ibrah.com</a>
+				<a href={`mailto:${content.contact.email}`} class="email-link">{content.contact.email}</a>
 				<div class="contact-social">
-					<a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+					<a href={content.contact.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 							<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
 						</svg>
 					</a>
-					<a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+					<a href={content.contact.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-							<path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-							<polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+							<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
 						</svg>
 					</a>
 				</div>
@@ -139,13 +183,31 @@ import Layout from '../layouts/Layout.astro';
 
 		<footer class="footer">
 			<div class="container">
-				<p class="footer-brand">IBRAH</p>
-				<p class="footer-tagline">Stories with lessons.</p>
-				<p class="footer-copyright">© 2024 IBRAH. All rights reserved.</p>
+				<p class="footer-brand">{content.brand.name}</p>
+				<p class="footer-tagline">{content.brand.tagline}</p>
+				<p class="footer-copyright">© 2024 {content.brand.name}. All rights reserved.</p>
 			</div>
 		</footer>
 	</main>
 </Layout>
+
+<script>
+	const navToggle = document.querySelector('.nav-toggle');
+	const navMenu = document.querySelector('.nav-menu');
+	const navLinks = document.querySelectorAll('.nav-link');
+
+	navToggle?.addEventListener('click', () => {
+		navToggle.classList.toggle('active');
+		navMenu?.classList.toggle('active');
+	});
+
+	navLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			navToggle?.classList.remove('active');
+			navMenu?.classList.remove('active');
+		});
+	});
+</script>
 
 <style>
 	:root {
@@ -166,6 +228,84 @@ import Layout from '../layouts/Layout.astro';
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+	}
+
+	body {
+		padding-top: 70px;
+	}
+
+	.navbar {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		background: rgba(10, 10, 10, 0.95);
+		backdrop-filter: blur(10px);
+		z-index: 1000;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.nav-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 70px;
+	}
+
+	.nav-brand {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--color-accent);
+		text-decoration: none;
+		letter-spacing: 0.1rem;
+	}
+
+	.nav-menu {
+		display: flex;
+		gap: 2rem;
+	}
+
+	.nav-link {
+		color: var(--color-text);
+		text-decoration: none;
+		font-weight: 500;
+		transition: color 0.3s ease;
+		position: relative;
+	}
+
+	.nav-link:hover {
+		color: var(--color-accent);
+	}
+
+	.nav-link:hover::after {
+		width: 100%;
+	}
+
+	.nav-link::after {
+		content: '';
+		position: absolute;
+		bottom: -5px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: var(--color-accent);
+		transition: width 0.3s ease;
+	}
+
+	.nav-toggle {
+		display: none;
+		flex-direction: column;
+		cursor: pointer;
+		gap: 4px;
+	}
+
+	.nav-toggle span {
+		width: 25px;
+		height: 3px;
+		background: var(--color-text);
+		transition: 0.3s;
 	}
 
 	main {
@@ -275,40 +415,60 @@ import Layout from '../layouts/Layout.astro';
 		letter-spacing: 0.05rem;
 	}
 
-	.about {
+	.reminders {
 		background: var(--color-bg-secondary);
 	}
 
-	.about-content {
-		max-width: 800px;
-		margin: 0 auto;
+	.reminder-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 3rem;
+		margin-top: 4rem;
+	}
+
+	.reminder-card {
 		text-align: center;
+		padding: 2rem;
+		position: relative;
 	}
 
-	.about-content p {
-		font-size: clamp(1.125rem, 2.5vw, 1.25rem);
-		color: var(--color-text-muted);
-		margin-bottom: 1.5rem;
-		line-height: 1.8;
-	}
-
-	.highlight {
+	.reminder-text {
+		font-size: clamp(1.25rem, 3vw, 1.5rem);
+		font-style: italic;
 		color: var(--color-accent);
-		font-weight: 600;
+		line-height: 1.6;
+		position: relative;
 	}
 
-	.content-types {
+	.reminder-text::before {
+		content: '"';
+		font-size: 4rem;
+		color: rgba(212, 175, 55, 0.2);
+		position: absolute;
+		top: -2rem;
+		left: -1rem;
+	}
+
+	.quran-section, .hadith-section, .stories-section, .videos-section {
 		background: var(--color-bg);
 	}
 
-	.cards {
+	.hadith-section {
+		background: var(--color-bg-secondary);
+	}
+
+	.videos-section {
+		background: var(--color-bg-secondary);
+	}
+
+	.content-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 		gap: 2rem;
 		margin-top: 4rem;
 	}
 
-	.card {
+	.content-card {
 		background: var(--color-bg-secondary);
 		padding: 2.5rem 2rem;
 		border-radius: 12px;
@@ -317,61 +477,127 @@ import Layout from '../layouts/Layout.astro';
 		transition: all 0.3s ease;
 	}
 
-	.card:hover {
+	.content-card:hover {
 		transform: translateY(-8px);
 		border-color: var(--color-accent);
 		box-shadow: 0 12px 32px rgba(212, 175, 55, 0.15);
 	}
 
-	.card-icon {
-		font-size: 3rem;
-		margin-bottom: 1.5rem;
-	}
-
-	.card h3 {
+	.content-title {
 		font-size: 1.5rem;
 		margin-bottom: 1rem;
 		color: var(--color-text);
 	}
 
-	.card p {
+	.arabic-text {
+		font-size: 1.5rem;
+		color: var(--color-text);
+		margin-bottom: 1rem;
+		font-family: 'Amiri', 'Times New Roman', serif;
+		text-align: center;
+		line-height: 2;
+		direction: rtl;
+	}
+
+	.translation {
+		font-size: 1.125rem;
+		color: var(--color-text);
+		margin-bottom: 1rem;
+		font-style: italic;
+		text-align: center;
+	}
+
+	.hadith-text {
+		font-size: 1.125rem;
+		color: var(--color-text);
+		margin-bottom: 1rem;
+		font-style: italic;
+		line-height: 1.7;
+	}
+
+	.content-text {
 		color: var(--color-text-muted);
 		line-height: 1.6;
+		margin-bottom: 1rem;
 	}
 
-	.quotes {
-		background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg) 100%);
-		min-height: 60vh;
+	.lesson {
+		color: var(--color-accent);
+		font-weight: 500;
+		margin-bottom: 1rem;
+		font-style: italic;
 	}
 
-	.quote-grid {
+	.reference {
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+		font-weight: 500;
+		display: block;
+		margin-top: auto;
+	}
+
+	.video-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 		gap: 3rem;
 		margin-top: 4rem;
 	}
 
-	.quote {
-		text-align: center;
-		padding: 2rem;
-		position: relative;
+	.video-card {
+		background: var(--color-bg-secondary);
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		transition: all 0.3s ease;
+		overflow: hidden;
 	}
 
-	.quote p {
-		font-size: clamp(1.25rem, 3vw, 1.5rem);
-		font-style: italic;
-		color: var(--color-accent);
-		line-height: 1.6;
-		position: relative;
+	.video-card:hover {
+		transform: translateY(-8px);
+		border-color: var(--color-accent);
+		box-shadow: 0 12px 32px rgba(212, 175, 55, 0.15);
 	}
 
-	.quote p::before {
-		content: '"';
-		font-size: 4rem;
-		color: rgba(212, 175, 55, 0.2);
+	.video-embed {
+		position: relative;
+		padding-bottom: 56.25%;
+		height: 0;
+		overflow: hidden;
+	}
+
+	.video-embed iframe {
 		position: absolute;
-		top: -2rem;
-		left: -1rem;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.video-card .video-embed {
+		position: relative;
+		padding-bottom: 56.25%;
+		height: 0;
+		overflow: hidden;
+		margin-bottom: 1rem;
+		border-radius: 8px;
+	}
+
+	.video-card .video-embed iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.category {
+		font-size: 0.75rem;
+		color: var(--color-accent);
+		background: var(--color-bg-secondary);
+		padding: 0.25rem 0.75rem;
+		border-radius: 12px;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.05rem;
 	}
 
 	.platforms {
@@ -496,6 +722,41 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	@media (max-width: 768px) {
+		.nav-menu {
+			position: fixed;
+			top: 70px;
+			left: -100%;
+			width: 100%;
+			height: calc(100vh - 70px);
+			background: var(--color-bg);
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			padding-top: 2rem;
+			transition: left 0.3s ease;
+			gap: 2rem;
+		}
+
+		.nav-menu.active {
+			left: 0;
+		}
+
+		.nav-toggle {
+			display: flex;
+		}
+
+		.nav-toggle.active span:nth-child(1) {
+			transform: rotate(45deg) translate(5px, 5px);
+		}
+
+		.nav-toggle.active span:nth-child(2) {
+			opacity: 0;
+		}
+
+		.nav-toggle.active span:nth-child(3) {
+			transform: rotate(-45deg) translate(7px, -6px);
+		}
+
 		section {
 			padding: var(--spacing-md) 0;
 			min-height: auto;
@@ -527,12 +788,12 @@ import Layout from '../layouts/Layout.astro';
 			justify-content: center;
 		}
 
-		.cards {
+		.content-grid {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;
 		}
 
-		.quote-grid {
+		.reminder-grid {
 			grid-template-columns: 1fr;
 			gap: 2rem;
 		}
