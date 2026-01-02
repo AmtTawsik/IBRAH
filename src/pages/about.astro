@@ -1,0 +1,328 @@
+---
+import Layout from '../layouts/Layout.astro';
+import contentData from '../data/content.json';
+
+const content = contentData;
+---
+
+<Layout title={`About - ${content.brand.name}`} description="Learn about Ibrah's mission to share meaningful Islamic stories and reminders">
+	<main>
+		<nav class="navbar">
+			<div class="nav-container">
+				<a href="/" class="nav-brand">{content.brand.name}</a>
+				<div class="nav-menu">
+					<a href="/" class="nav-link">Home</a>
+					<a href="/about" class="nav-link">About</a>
+					<a href="/contact" class="nav-link">Contact</a>
+				</div>
+				<div class="nav-toggle">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+		</nav>
+
+		<section class="hero about-hero">
+			<div class="container">
+				<h1 class="page-title">About {content.brand.name}</h1>
+				<p class="page-subtitle">Understanding the meaning behind every story</p>
+			</div>
+		</section>
+
+		<section class="about-content">
+			<div class="container">
+				<div class="content-grid">
+					<div class="content-card">
+						<h2>What is Ibrah?</h2>
+						<p><strong>Ibrah</strong> is an Arabic word meaning "lesson," "reflection," or "warning taken from a story."</p>
+						<p>Stories have always been humanity's oldest teacher. They carry wisdom, evoke emotion, and leave us changed. Ibrah is a platform dedicated to sharing short, impactful stories that resonate with your heart and awaken your mind.</p>
+					</div>
+
+					<div class="content-card">
+						<h2>Our Mission</h2>
+						<p>To share meaningful Islamic content that guides hearts toward Allah and inspires positive change in daily life.</p>
+						<p>From Qur'anic verses to Prophetic wisdom and real-life reflections, every piece of content is crafted to make you pause, think, and grow spiritually.</p>
+					</div>
+
+					<div class="content-card">
+						<h2>What We Share</h2>
+						<ul>
+							<li><strong>Qur'an Ayat:</strong> Verses with translations and reflections</li>
+							<li><strong>Hadith:</strong> Prophetic sayings with authentic sources</li>
+							<li><strong>Stories:</strong> Real-life and inspired narratives with lessons</li>
+							<li><strong>Video Reminders:</strong> Visual content for children and families</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<div class="container">
+				<p class="footer-brand">{content.brand.name}</p>
+				<p class="footer-tagline">{content.brand.tagline}</p>
+				<p class="footer-copyright">© 2024 {content.brand.name}. All rights reserved.</p>
+			</div>
+		</footer>
+	</main>
+</Layout>
+
+<script>
+	const navToggle = document.querySelector('.nav-toggle');
+	const navMenu = document.querySelector('.nav-menu');
+	const navLinks = document.querySelectorAll('.nav-link');
+
+	navToggle?.addEventListener('click', () => {
+		navToggle.classList.toggle('active');
+		navMenu?.classList.toggle('active');
+	});
+
+	navLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			navToggle?.classList.remove('active');
+			navMenu?.classList.remove('active');
+		});
+	});
+</script>
+
+<style>
+	:root {
+		--color-bg: #0a0a0a;
+		--color-bg-secondary: #1a1a1a;
+		--color-text: #ffffff;
+		--color-text-muted: #a0a0a0;
+		--color-accent: #d4af37;
+		--color-accent-hover: #f0c955;
+		--spacing-xs: 1rem;
+		--spacing-sm: 2rem;
+		--spacing-md: 4rem;
+		--spacing-lg: 6rem;
+		--spacing-xl: 8rem;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	body {
+		padding-top: 70px;
+	}
+
+	.navbar {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		background: rgba(10, 10, 10, 0.95);
+		backdrop-filter: blur(10px);
+		z-index: 1000;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.nav-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 70px;
+	}
+
+	.nav-brand {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--color-accent);
+		text-decoration: none;
+		letter-spacing: 0.1rem;
+	}
+
+	.nav-menu {
+		display: flex;
+		gap: 2rem;
+	}
+
+	.nav-link {
+		color: var(--color-text);
+		text-decoration: none;
+		font-weight: 500;
+		transition: color 0.3s ease;
+		position: relative;
+	}
+
+	.nav-link:hover {
+		color: var(--color-accent);
+	}
+
+	.nav-link::after {
+		content: '';
+		position: absolute;
+		bottom: -5px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: var(--color-accent);
+		transition: width 0.3s ease;
+	}
+
+	.nav-link:hover::after {
+		width: 100%;
+	}
+
+	.nav-toggle {
+		display: none;
+		flex-direction: column;
+		cursor: pointer;
+		gap: 4px;
+	}
+
+	.nav-toggle span {
+		width: 25px;
+		height: 3px;
+		background: var(--color-text);
+		transition: 0.3s;
+	}
+
+	main {
+		background: var(--color-bg);
+		color: var(--color-text);
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+		line-height: 1.6;
+		scroll-behavior: smooth;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.about-hero {
+		text-align: center;
+		padding: var(--spacing-lg) 0;
+		background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
+	}
+
+	.page-title {
+		font-size: clamp(3rem, 8vw, 5rem);
+		font-weight: 700;
+		color: var(--color-accent);
+		margin-bottom: 1rem;
+	}
+
+	.page-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		font-style: italic;
+	}
+
+	.about-content {
+		padding: var(--spacing-lg) 0;
+		background: var(--color-bg-secondary);
+	}
+
+	.content-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	.content-card {
+		background: var(--color-bg);
+		padding: 2rem;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.content-card h2 {
+		color: var(--color-accent);
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
+	}
+
+	.content-card p {
+		color: var(--color-text-muted);
+		margin-bottom: 1rem;
+		line-height: 1.7;
+	}
+
+	.content-card ul {
+		color: var(--color-text-muted);
+		padding-left: 1.5rem;
+	}
+
+	.content-card li {
+		margin-bottom: 0.5rem;
+		line-height: 1.6;
+	}
+
+	.footer {
+		background: var(--color-bg);
+		text-align: center;
+		padding: 3rem 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.footer-brand {
+		font-size: 2rem;
+		font-weight: 700;
+		color: var(--color-accent);
+		margin-bottom: 0.5rem;
+		letter-spacing: 0.2rem;
+	}
+
+	.footer-tagline {
+		font-size: 1rem;
+		color: var(--color-text-muted);
+		margin-bottom: 1rem;
+	}
+
+	.footer-copyright {
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+	}
+
+	@media (max-width: 768px) {
+		.nav-menu {
+			position: fixed;
+			top: 70px;
+			left: -100%;
+			width: 100%;
+			height: calc(100vh - 70px);
+			background: var(--color-bg);
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			padding-top: 2rem;
+			transition: left 0.3s ease;
+			gap: 2rem;
+		}
+
+		.nav-menu.active {
+			left: 0;
+		}
+
+		.nav-toggle {
+			display: flex;
+		}
+
+		.nav-toggle.active span:nth-child(1) {
+			transform: rotate(45deg) translate(5px, 5px);
+		}
+
+		.nav-toggle.active span:nth-child(2) {
+			opacity: 0;
+		}
+
+		.nav-toggle.active span:nth-child(3) {
+			transform: rotate(-45deg) translate(7px, -6px);
+		}
+
+		.content-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
